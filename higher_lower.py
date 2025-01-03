@@ -37,4 +37,9 @@ def enter_players():
 
     return players
 
-print(enter_players())
+def track_turn():
+    while higher_lower():
+        pass
+
+
+#print(enter_players())
