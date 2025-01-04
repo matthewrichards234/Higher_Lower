@@ -1,6 +1,6 @@
 import random
 
-def higher_lower(turn):
+def higher_lower():
     r = random.randint(1, 100)
     guess = int(input("Guess a number between 1 - 100: \n"))
     while guess != r:
@@ -12,7 +12,6 @@ def higher_lower(turn):
     print("Correct! You guessed the number.")
     return True
 
-
 def enter_players():
     # Store player names
     players = []
@@ -21,16 +20,17 @@ def enter_players():
     n = int(input("Enter number of players (1-5): \n"))
 
     # Base case limiting total players
-    if (n < 1) or (n > 5):
-        print("Please enter player number betwee 1-5.\n")
-
-    for p in range(n):
-        while len(players) < n:
-            p = input("Enter player name: \n").title()
-            if p in players:
-                print("Please enter unique names per player.\n")
-            else:
-                players.append(p)
+    while (n >= 1) or (n <= 5):
+        if (n < 1) or (n > 5):
+            print("Please enter player number betwee 1-5.\n")
+        else:
+            for p in range(n):
+                while len(players) < n:
+                    p = input("Enter player name: \n").title()
+                    if p in players:
+                        print("Please enter unique names per player.\n")
+                    else:
+                        players.append(p)
         print("All players added! Good luck!")
 
     return players
@@ -39,6 +39,7 @@ def track_turn(players):
     while higher_lower():
         turn = 0
         for player in players:
+            print(f"It is {player[turn]}'s turn: \n")
             higher_lower(player[turn])
             turn += 1
 
@@ -48,6 +49,13 @@ def track_turn(players):
 
 def main():
     print("Welcome to the Higher-Lower Game!")
+    enter_players()
     players = enter_players()
     track_turn(players)
-    
+
+
+players = enter_players()
+print(players)
+track_turn(players)
+print(track_turn)
+
