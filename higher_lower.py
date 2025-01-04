@@ -2,7 +2,6 @@ import random
 
 def higher_lower(turn):
     r = random.randint(1, 100)
-    #print("Welcome to the Higher-Lower Game!")
     guess = int(input("Guess a number between 1 - 100: \n"))
     while guess != r:
         if guess < r:
@@ -13,7 +12,6 @@ def higher_lower(turn):
     print("Correct! You guessed the number.")
     return True
 
-#print(higher_lower())
 
 def enter_players():
     # Store player names
@@ -48,5 +46,5 @@ def track_turn(players):
             if turn > len(players):
                 turn = 0
 
-
-#print(enter_players())
+def main():
+    print("Welcome to the Higher-Lower Game!")
