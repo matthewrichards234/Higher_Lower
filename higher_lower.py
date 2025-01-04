@@ -48,3 +48,6 @@ def track_turn(players):
 
 def main():
     print("Welcome to the Higher-Lower Game!")
+    players = enter_players()
+    track_turn(players)
+    
