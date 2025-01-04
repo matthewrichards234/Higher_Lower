@@ -20,7 +20,7 @@ def enter_players():
     n = int(input("Enter number of players (1-5): \n"))
 
     # Base case limiting total players
-    while (n >= 1) or (n <= 5):
+    while n == range(1,5):
         if (n < 1) or (n > 5):
             print("Please enter player number betwee 1-5.\n")
         else:
@@ -31,7 +31,7 @@ def enter_players():
                         print("Please enter unique names per player.\n")
                     else:
                         players.append(p)
-        print("All players added! Good luck!")
+            print("All players added! Good luck!")
 
     return players
 
