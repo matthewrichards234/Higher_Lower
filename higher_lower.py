@@ -22,7 +22,6 @@ def higher_lower():
             print("Correct! You guessed the number!")
             return True
 
-
 def enter_players():
     # Store player names
     players = []
@@ -65,6 +64,4 @@ def main():
     print("Here are the players:", players_list)
     
     hl = higher_lower()
-
-
 
