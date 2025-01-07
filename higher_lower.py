@@ -16,24 +16,29 @@ def enter_players():
     # Store player names
     players = []
 
-    # Number of players playing
-    n = int(input("Enter number of players (1-5): \n"))
-
-    # Base case limiting total players
-    while n == range(1,5):
-        if (n < 1) or (n > 5):
-            print("Please enter player number betwee 1-5.\n")
-        else:
-            for p in range(n):
-                while len(players) < n:
-                    p = input("Enter player name: \n").title()
-                    if p in players:
-                        print("Please enter unique names per player.\n")
-                    else:
-                        players.append(p)
+    while True:
+        # Number of players playing
+        try:
+            n = int(input("Enter number of players (1-5): \n"))
+            
+            # Limiting total players
+            if n < 1 or n > 5:
+                print("Please enter a number between 1 and 5.\n")
+                continue
+                
+            while len(players) < n:
+                p = input("Enter player name: \n").strip().title()
+                if p in players:
+                    print("Please enter unique names per player.\n")
+                else:
+                    players.append(p)
             print("All players added! Good luck!")
 
-    return players
+            return players
+
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+
 
 def track_turn(players):
     while higher_lower():
@@ -56,6 +61,6 @@ def main():
 
 players = enter_players()
 print(players)
-track_turn(players)
-print(track_turn)
+#track_turn(players)
+#print(track_turn)
 
