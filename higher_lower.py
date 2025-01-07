@@ -50,18 +50,22 @@ def enter_players():
             print("Invalid input. Please enter an integer.")
 
 def track_turn(players):
-    turn = 0
+    num_players = len(players)
+    current_player_index = 0  # Index turn
     for player in players:
-        print(f"It is {player[turn]}'s turn: \n")
-        turn += 1
-        # Reset player turns when length of players is exceeded
-        if turn > len(players):
-            turn = 0
+        print(f"It is {player[current_player_index]}'s turn: \n")
+        current_player_index = (current_player_index + 1) % num_players
+
     
 def main():
     print("Welcome to the Higher-Lower Game!")
+
+    # Get player names
     players_list = enter_players()
     print("Here are the players:", players_list)
     
-    hl = higher_lower()
+    while higher_lower() != True:
+        game = track_turn(players_list)
 
+# Uncomment when ready to play!
+#print(main)
