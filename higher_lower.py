@@ -1,21 +1,27 @@
 import random
 
 MIN_NUM = 1
-MAX_NUM = 10
+MAX_NUM = 3
 MIN_PLAYERS = 1
 MAX_PLAYERS = 5
 
 def higher_lower():
     r = random.randint(MIN_NUM, MAX_NUM)
-    guess = int(input(f"Guess a number between {MIN_NUM} - {MAX_NUM}: \n"))
-    while guess != r:
+    while True:
+        try:
+            guess = int(input(f"Guess a number between {MIN_NUM} - {MAX_NUM}: \n"))
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+            continue
+        
         if guess < r:
-            print("You guessed a number LOWER than the answer.")
+            print(f"Your guess is too low! Try a higher number between {guess + 1} and {MAX_NUM}.")
         elif guess > r:
-            print("You guessed a number HIGHER than the answer.")
-        guess = int(input("Guess again: \n"))
-    print("Correct! You guessed the number.")
-    return True
+            print(f"Your guess is too high! Try a lower number between {MIN_NUM} and {guess - 1}.")
+        else:
+            print("Correct! You guessed the number!")
+            return True
+
 
 def enter_players():
     # Store player names
@@ -43,30 +49,22 @@ def enter_players():
 
         except ValueError:
             print("Invalid input. Please enter an integer.")
-players_list = enter_players()
-print("Here are the players:", players_list)
 
 def track_turn(players):
-    hl = higher_lower()
-    while hl != True:
-        turn = 0
-        for player in players:
-            print(f"It is {player[turn]}'s turn: \n")
-            turn += 1
-            return print(f"{player[turn]} guessed correctly and won the game!")
-
+    turn = 0
+    for player in players:
+        print(f"It is {player[turn]}'s turn: \n")
+        turn += 1
         # Reset player turns when length of players is exceeded
         if turn > len(players):
             turn = 0
     
-track_turn(players_list)
-print(track_turn)
-
 def main():
     print("Welcome to the Higher-Lower Game!")
-    enter_players()
-    players = enter_players()
-    track_turn(players)
+    players_list = enter_players()
+    print("Here are the players:", players_list)
+    
+    hl = higher_lower()
 
 
 
