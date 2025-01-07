@@ -55,7 +55,6 @@ def track_turn(players):
     for player in players:
         print(f"It is {player[current_player_index]}'s turn: \n")
         current_player_index = (current_player_index + 1) % num_players
-
     
 def main():
     print("Welcome to the Higher-Lower Game!")
