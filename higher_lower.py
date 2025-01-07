@@ -38,7 +38,8 @@ def enter_players():
 
         except ValueError:
             print("Invalid input. Please enter an integer.")
-
+players_list = enter_players()
+print("Here are the players:", players_list)
 
 def track_turn(players):
     while higher_lower():
@@ -58,9 +59,6 @@ def main():
     players = enter_players()
     track_turn(players)
 
-
-players = enter_players()
-print(players)
 #track_turn(players)
 #print(track_turn)
 
