@@ -1,5 +1,6 @@
 import random
 
+# Global Constants
 MIN_NUM = 1
 MAX_NUM = 1000
 MIN_PLAYERS = 1
